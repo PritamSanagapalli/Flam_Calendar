@@ -36,11 +36,6 @@ A modern, interactive event calendar application built with React. This applicat
 
 4. Open [http://localhost:3000](http://localhost:3000) to view it in your browser
 
-## Available Scripts
-
-- `npm start` - Runs the app in development mode
-- `npm test` - Launches the test runner
-- `npm run build` - Builds the app for production
 
 ## Technologies Used
 
@@ -64,7 +59,3 @@ A modern, interactive event calendar application built with React. This applicat
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
