@@ -20,8 +20,8 @@ A modern, interactive event calendar application built with React. This applicat
 
 1. Clone the repository
    ```
-   git clone https://github.com/yourusername/event-calendar.git
-   cd event-calendar
+   git clone https://github.com/PritamSanagapalli/Flam_Calendar.git
+   
    ```
 
 2. Install dependencies
