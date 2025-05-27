@@ -1,0 +1,153 @@
+/* Draggable Event Styles */
+.draggable-event {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  cursor: default;
+}
+
+.draggable-event:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.draggable-event.is-dragging {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  opacity: 0.95;
+  transform: scale(1.02);
+  background-color: #fafafa;
+}
+
+.drag-handle {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  color: #bbb;
+  cursor: grab;
+  font-size: 16px;
+  user-select: none;
+  transition: color 0.2s;
+}
+
+.drag-handle:hover {
+  color: #666;
+}
+
+.is-dragging .drag-handle {
+  cursor: grabbing;
+  color: #666;
+}
+
+/* Category-specific styling */
+.draggable-event.category-work {
+  border-left: 3px solid #1890ff;
+}
+
+.draggable-event.category-personal {
+  border-left: 3px solid #52c41a;
+}
+
+.draggable-event.category-important {
+  border-left: 3px solid #fa8c16;
+}
+
+.draggable-event.category-other {
+  border-left: 3px solid #722ed1;
+}
+
+.draggable-event .event-time {
+  min-width: 60px;
+  font-weight: bold;
+  color: #333;
+}
+
+.draggable-event .event-details {
+  flex-grow: 1;
+}
+
+.draggable-event .event-details h3 {
+  margin: 0 0 5px 0;
+  font-size: 16px;
+}
+
+.draggable-event .event-details p {
+  margin: 5px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.draggable-event .event-category {
+  display: inline-block;
+  font-size: 12px;
+  background-color: #f0f0f0;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-top: 5px;
+  color: #666;
+}
+
+.draggable-event .event-recurrence {
+  display: inline-block;
+  font-size: 12px;
+  background-color: #e6f7ff;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-left: 5px;
+  color: #1890ff;
+}
+
+.draggable-event .delete-event-button {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.3s;
+  align-self: center;
+}
+
+.draggable-event .delete-event-button:hover {
+  background-color: #ff7875;
+}
+
+/* Drag handle indicator */
+.draggable-event::before {
+  content: '⋮⋮';
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ccc;
+  font-size: 16px;
+  cursor: grab;
+}
+
+.draggable-event.is-dragging::before {
+  cursor: grabbing;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .draggable-event {
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  .draggable-event .event-time {
+    margin-bottom: 5px;
+  }
+  
+  .draggable-event .delete-event-button {
+    align-self: flex-end;
+    margin-top: 10px;
+  }
+}

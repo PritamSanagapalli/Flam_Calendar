@@ -1,0 +1,47 @@
+/* Droppable Event List Styles */
+.droppable-event-list {
+  min-height: 100px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.droppable-event-list.dragging-over {
+  background-color: #e6f7ff;
+  box-shadow: inset 0 0 5px rgba(24, 144, 255, 0.3);
+}
+
+.droppable-event-list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.droppable-event-list .no-events {
+  color: #999;
+  text-align: center;
+  padding: 20px;
+  font-style: italic;
+}
+
+/* Drop indicator */
+.droppable-event-list::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background-color: transparent;
+  margin: 5px 0;
+  transition: background-color 0.3s;
+}
+
+.droppable-event-list.dragging-over::after {
+  background-color: #1890ff;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .droppable-event-list {
+    padding: 5px;
+  }
+}

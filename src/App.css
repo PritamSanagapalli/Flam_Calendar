@@ -1,0 +1,222 @@
+/* ───────────────────────────────────────────────────────────────────────── */
+/*                            Color & Spacing Variables                     */
+/* ───────────────────────────────────────────────────────────────────────── */
+:root {
+  /* Primary palette */
+  --color-bg: #f5f7fa;
+  --color-surface: #ffffff;
+  --color-primary: #3498db;
+  --color-primary-hover: #2980b9;
+  --color-accent: #2ecc71;
+  --color-text: #333333;
+  --color-muted: #777777;
+  
+  /* Typography */
+  --font-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+}
+
+/* ───────────────────────────────────────────────────────────────────────── */
+/*                            Global Reset & Base                          */
+/* ───────────────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg);
+  font-family: var(--font-base);
+  color: var(--color-text);
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+}
+
+/* ───────────────────────────────────────────────────────────────────────── */
+/*                           Calendar Container                            */
+/* ───────────────────────────────────────────────────────────────────────── */
+.calendar-container {
+  background-color: var(--color-surface);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  overflow: hidden;
+  max-width: 1000px;
+  width: 200%;
+  display: grid;
+  grid-template-columns: 1fr auto; /* calendar + sidebar */
+}
+
+/* Example inner wrapper for calendar section */
+.calendar-container .calendar {
+  padding: var(--space-md);
+}
+
+/* ───────────────────────────────────────────────────────────────────────── */
+/*                           Button Styles                                 */
+/* ───────────────────────────────────────────────────────────────────────── */
+button {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-md);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+}
+
+button:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(52,152,219,0.4);
+}
+
+/* ───────────────────────────────────────────────────────────────────────── */
+/*                           Form Element Styles                           */
+/* ───────────────────────────────────────────────────────────────────────── */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: var(--space-sm);
+  font-family: inherit;
+  font-size: 1rem;
+  border: 1px solid #d1d1d1;
+  border-radius: 6px;
+  background-color: #fafafa;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(52,152,219,0.2);
+}
+
+/* ───────────────────────────────────────────────────────────────────────── */
+/*                          Scrollbar Customization                        */
+/* ───────────────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-muted);
+  border-radius: 8px;
+  border: 2px solid var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text);
+}
+
+/* ───────────────────────────────────────────────────────────────────────── */
+/*                          Utility & Helpers                              */
+/* ───────────────────────────────────────────────────────────────────────── */
+/* Center any block-level element */
+.u-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Simple divider */
+.u-divider {
+  height: 1px;
+  background: #e0e0e0;
+  margin: var(--space-lg) 0;
+}
+:root {
+  --scale-open: 1.1;
+  --scale-closed: 0.9;
+  --slide-distance: 50px;
+  --transition-duration: 0.4s;
+  --transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ───────────────────────────────────────────────────────────────────────── */
+/*    Center & Enlarge by Default                                           */
+/* ───────────────────────────────────────────────────────────────────────── */
+.App {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: #f5f7fa;
+}
+
+.calendar-container {
+  /* make it “pop” slightly larger */
+  transform: scale(var(--scale-open)) translateY(0);
+  transform-origin: top center;
+  transition:
+    transform var(--transition-duration) var(--transition-ease),
+    opacity   var(--transition-duration) var(--transition-ease);
+  opacity: 1;
+
+  /* optional framing */
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  overflow: hidden;
+  width: 90%;
+  max-width: 800px;
+}
+
+/* ───────────────────────────────────────────────────────────────────────── */
+/*    Shrink & Slide on “.collapsed”                                        */
+/* ───────────────────────────────────────────────────────────────────────── */
+.calendar-container.collapsed {
+  /* scale down and slide upwards */
+  transform: scale(var(--scale-closed)) translateY(calc(-1 * var(--slide-distance)));
+  opacity: 0.95;
+}
+
+/* ───────────────────────────────────────────────────────────────────────── */
+/*    Example: Toggle collapsed when any date cell gets “.active”          */
+/* ───────────────────────────────────────────────────────────────────────── */
+/* (You’ll need to add/remove these classes via JS on click events.)       */
+.calendar-day.active ~ /* sibling selector */ 
+.calendar-container {
+  /* if you prefer to trigger collapse from within the calendar itself */
+  transform: scale(var(--scale-closed)) translateY(calc(-1 * var(--slide-distance)));
+  opacity: 0.95;
+}
